@@ -45,3 +45,23 @@ body:has(#welcome-popup:not([hidden])){overflow:hidden}#welcome-popup{position:f
 @media(max-width:760px){main{padding:0 14px 24px}.command-bar{gap:12px;min-height:62px}.command-bar .brand{font-size:13px;letter-spacing:2px}.brand span{font-size:7px;letter-spacing:1px}.command-bar>div{gap:14px}.command-bar>div a{font-size:11px}.edition{display:none}.hero-layout{grid-template-columns:1fr;gap:20px;padding-top:18px}.hero-copy h1{font-size:36px}.hero-copy>p:not(.eyebrow){font-size:14px}.hero-art img{max-height:200px}.workspace{display:flex;flex-direction:column;gap:0}.workspace>.panel{width:100%}.manual{order:0}.planner{position:static;order:1}.account{display:block}.account .actions{margin-top:14px}.account .footnote{margin-top:12px}.instructor>img{width:85px;height:120px}.instructor{padding-right:12px;gap:10px}.instructor-speech #instructor-tip{font-size:12px}.instructor-speech .muted{font-size:9px}.nav-heading{display:block}.nav-heading p{margin-top:4px}.archive #bookmarks{grid-template-columns:1fr}.manual h3{font-size:22px}.status{font-size:8px;letter-spacing:1px}.hero-art figcaption{font-size:8px;letter-spacing:0}}
 @media(max-width:480px){#guide-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.guide-card .card-art{aspect-ratio:1.4}.guide-card .card-label{font-size:11px;padding:10px;min-height:65px}.panel{padding:17px}.welcome-console h2{font-size:30px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button{transition:none}}
+
+/* 공식 Pretendard 가변 글꼴을 자체 호스팅합니다. 라이선스: assets/fonts/OFL.txt */
+@font-face{font-family:'Pretendard Variable';src:url('assets/fonts/PretendardVariable.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+body{font-family:'Pretendard Variable','맑은 고딕',sans-serif;letter-spacing:-.015em}
+input,select,textarea,button{font-family:inherit}
+h1,h2,h3{font-weight:700;line-height:1.4}
+.hero-copy h1{font-weight:800;letter-spacing:-.035em}
+.manual-block p,.manual-block ol{font-size:15px;line-height:1.9}
+.guide-card .card-label{font-size:13px;font-weight:600;line-height:1.55}
+.hero-tags span{font-family:'Pretendard Variable','맑은 고딕',sans-serif}
+/* 정사각형 유닛 이미지를 같은 비율의 영역에 채워 서로 다른 색의 옆 여백을 없앱니다.
+   원본 그림을 자르거나 늘리지 않으며 투명 유닛의 기존 배경 처리도 유지합니다. */
+.guide-card .card-art,.guide-card:last-child .card-art{aspect-ratio:1 / 1;background-size:100% 100%;height:auto}
+.manual-visual{width:min(100%,340px);margin:0 auto 24px;background:#1c2b36}
+.manual-visual img{display:block;width:100%;height:auto;max-height:none;object-fit:initial}
+/* 유닛을 선택하기 전의 가로 표지는 원래 비율로 넓게 보여줍니다. */
+.manual-visual:has(img[src*="carbot-zerg-cover"]){width:100%}
+@media(max-width:480px){.guide-card .card-label{font-size:12px}.manual-block p,.manual-block ol{font-size:14px}}
+/* 투명 PNG는 가로세로 비율이 다르므로 contain으로 실루엣 비율을 지킵니다. */
+.guide-card[data-guide="lurker"] .card-art,.guide-card[data-guide="ultra"] .card-art{background-size:contain,100% 100%}
